@@ -1,2 +1,11 @@
 # angular-projetos-praticos
-Projetos Práticos desenvolvidos durante curso Curso de Angular 2 (v15+) Typescript do Básico ao Avançado, curso esse assistido pela plataforma da Udemy. Mais informações estarão disponíveis no README
+
+<strong>Curso:</strong> Curso de Angular 2 (v15+) Typescript do Básico ao Avançado
+
+<strong>Instrutor:</strong> Dener Troquatte
+
+<strong>Plataforma:</strong> Udemy
+
+<strong>Ano que estou fazendo o curso:</strong> 2023
+
+<hr>
