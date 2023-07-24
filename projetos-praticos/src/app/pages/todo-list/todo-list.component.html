@@ -3,7 +3,11 @@
 <div>
     <ul>
         <li *ngFor="let item of listaDeAfazeres; let i = index">
-            {{ item }} <button (click)="removeToDo(i)">Excluir</button>
+            <label (click)="handleChangeCheckbox(i)">
+                <input type="checkbox" [checked]="item.checked">
+                {{ item.toDo }}
+            </label>
+            <button (click)="removeToDo(i)">Excluir</button>
         </li>
     </ul>
 
