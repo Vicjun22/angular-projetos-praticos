@@ -1,11 +1,120 @@
-h1 {
-    width: 100%;
-    height: 20%;
+.todo-list {
+    width: 600px;
+    height: 500px;
+
+    padding: 25px;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 15px;
+    background-color: #ffffff;
 }
 
-div {
+.todo-list_container {
     width: 100%;
-    height: 80%;
+    height: 75%;
+}
 
-    background-color: #2e2e2e;
+.todo-list_title {
+    width: 100%;
+    margin-bottom: 25px;
+
+    font-size: 28px;
+}
+
+.todo-list_title small {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.todo-list_container ul {
+    width: 100%;
+    height: 100%;
+    gap: 5px;
+
+    list-style: none;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-list_content {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #777777;
+}
+
+.todo-list_content label {
+    cursor: pointer;
+}
+
+.todo-list_content button {
+    cursor: pointer;
+
+    border: none;
+    background-color: transparent;
+}
+
+.todo-list_input {
+    width: 100%;
+    height: auto;
+
+    padding: 5px 10px;
+
+    border: 1px solid #777777;
+    border-radius: 5px;
+    outline: none;
+}
+
+.todo-list_input-size {
+    margin-bottom: 10px;
+
+    text-align: end;
+    font-size: 14px;
+}
+
+.todo-list_buttons {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-list_button {
+    width: 150px;
+    height: 40px;
+
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+.todo-list_button:hover {
+    filter: brightness(0.8);
+}
+
+.todo-list_button_add {
+    background-color: #5551b5;
+}
+
+.todo-list_button_remove {
+    background-color: #d21111;
 }

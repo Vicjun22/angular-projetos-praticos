@@ -18,5 +18,10 @@ body, app-root {
     align-items: flex-start;
     justify-content: flex-start;
 
-    background-color: #e2e2e2;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+
+    background: linear-gradient(180deg, #807ECE 0%, #8E7ECE 100%);
 }

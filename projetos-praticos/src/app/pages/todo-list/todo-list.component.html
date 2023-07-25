@@ -1,18 +1,30 @@
-<h1>To-Do List</h1>
-
-<div>
-    <ul>
-        <li *ngFor="let item of listaDeAfazeres; let i = index">
-            <label (click)="handleChangeCheckbox(i)">
-                <input type="checkbox" [checked]="item.checked">
-                {{ item.toDo }}
-            </label>
-            <button (click)="removeToDo(i)">Excluir</button>
-        </li>
-    </ul>
-
-    <input type="text" maxlength="50" [(ngModel)]="textoDeEntrada" />
-    <p>{{ textoDeEntrada.length }} / 50</p>
-    <button (click)="newToDo()">Adicionar Tarefa</button>
-    <button (click)="removeAll()">Remover Tudo</button>
-</div>
+<section [ngClass]="'todo-list'">
+    <div [ngClass]="'todo-list_container'">
+        <h1 [ngClass]="'todo-list_title'">To Do List <small>({{ listaDeAfazeres.length }})</small></h1>
+    
+        <ul>
+            <li [ngClass]="'todo-list_content'" *ngFor="let item of listaDeAfazeres; let i = index">
+                <label (click)="handleChangeCheckbox(i)">
+                    <input type="checkbox" [checked]="item.checked">
+                    {{ item.toDo }}
+                </label>
+                <button (click)="removeToDo(i)"><mat-icon>delete</mat-icon></button>
+            </li>
+        </ul>
+    </div>
+    
+    <div>
+        <input type="text"
+            maxlength="50"
+            [(ngModel)]="textoDeEntrada"
+            [ngClass]="'todo-list_input'"
+            placeholder="Qual sua nova tarefa?" />
+    
+        <p [ngClass]="'todo-list_input-size'">{{ textoDeEntrada.length }} / 50</p>
+    
+        <div [ngClass]="'todo-list_buttons'">
+            <button [ngClass]="['todo-list_button', 'todo-list_button_remove']" (click)="removeAll()">Remover Tudo</button>
+            <button [ngClass]="['todo-list_button', 'todo-list_button_add']" (click)="newToDo()">Adicionar Tarefa</button>
+        </div>
+    </div>
+</section>
