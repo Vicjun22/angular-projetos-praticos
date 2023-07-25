@@ -13,7 +13,7 @@
         </ul>
     </div>
     
-    <div>
+    <div [ngClass]="'todo-list_control'">
         <input type="text"
             maxlength="50"
             [(ngModel)]="textoDeEntrada"
@@ -23,8 +23,16 @@
         <p [ngClass]="'todo-list_input-size'">{{ textoDeEntrada.length }} / 50</p>
     
         <div [ngClass]="'todo-list_buttons'">
-            <button [ngClass]="['todo-list_button', 'todo-list_button_remove']" (click)="removeAll()">Remover Tudo</button>
+            <button [ngClass]="['todo-list_button', 'todo-list_button_remove']" (click)="isOpenDialog = !isOpenDialog">Remover Tudo</button>
             <button [ngClass]="['todo-list_button', 'todo-list_button_add']" (click)="newToDo()">Adicionar Tarefa</button>
+        </div>
+    </div>
+
+    <div [ngClass]="'todo-list_dialog'" *ngIf="isOpenDialog">
+        <p>Deseja realmente remover todas as tarefas?</p>
+        <div>
+            <button [ngClass]="['todo-list_button', 'todo-list_button_add']" (click)="isOpenDialog = !isOpenDialog">Não</button>
+            <button [ngClass]="['todo-list_button', 'todo-list_button_remove']" (click)="removeAll()">Sim</button>
         </div>
     </div>
 </section>

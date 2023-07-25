@@ -11,6 +11,7 @@ export class TodoListComponent implements OnInit {
   public textoDeEntrada: string = '';
   public listaDeAfazeres: Array<{checked: boolean, toDo: string}> = [];
   public conteudoArmazenamentoLocal: string | null = '';
+  public isOpenDialog: boolean = false;
 
   public ngOnInit(): void {
     this.conteudoArmazenamentoLocal = window.localStorage.getItem('todo-list');
@@ -20,7 +21,15 @@ export class TodoListComponent implements OnInit {
   }
 
   public newToDo(): void {
-    this.listaDeAfazeres = [{checked: false, toDo: this.textoDeEntrada}, ...this.listaDeAfazeres];
+    if (!this.listaDeAfazeres) {
+      this.listaDeAfazeres = [{checked: false, toDo: this.textoDeEntrada}, ...this.listaDeAfazeres];
+    } else {
+      const checkboxChecked: Array<{checked: boolean, toDo: string}> = this.listaDeAfazeres
+        .filter((item: {checked: boolean, toDo: string}) => item.checked);
+      const checkboxUnchecked: Array<{checked: boolean, toDo: string}> = this.listaDeAfazeres
+        .filter((item: {checked: boolean, toDo: string}) => !item.checked);
+        this.listaDeAfazeres = checkboxChecked.concat({checked: false, toDo: this.textoDeEntrada}).concat(checkboxUnchecked);
+    }
     window.localStorage.setItem('todo-list', JSON.stringify(this.listaDeAfazeres));
     this.textoDeEntrada = '';
   }
@@ -33,6 +42,7 @@ export class TodoListComponent implements OnInit {
   public removeAll(): void {
     this.listaDeAfazeres = [];
     window.localStorage.setItem('todo-list', JSON.stringify(this.listaDeAfazeres));
+    this.isOpenDialog = false;
   }
 
   public handleChangeCheckbox(index: number): void {

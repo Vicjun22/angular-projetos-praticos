@@ -7,7 +7,10 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
 
     border-radius: 15px;
     background-color: #ffffff;
@@ -33,8 +36,10 @@
 
 .todo-list_container ul {
     width: 100%;
-    height: 100%;
+    height: 75%;
     gap: 5px;
+
+    padding: 10px;
 
     list-style: none;
 
@@ -43,6 +48,9 @@
 
     display: flex;
     flex-direction: column;
+
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
 }
 
 .todo-list_content {
@@ -52,6 +60,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    word-wrap: break-word;
+    word-break: keep-all;
+    white-space: normal;
 
     border-bottom: 1px solid #777777;
 }
@@ -65,6 +77,10 @@
 
     border: none;
     background-color: transparent;
+}
+
+.todo-list_control {
+    width: 100%;
 }
 
 .todo-list_input {
@@ -117,4 +133,45 @@
 
 .todo-list_button_remove {
     background-color: #d21111;
+}
+
+.todo-list_dialog {
+    width: 400px;
+    height: auto;
+    gap: 20px;
+
+    padding: 20px;
+
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #000000;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.todo-list_dialog div {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 650px) {
+    .todo-list {
+        width: 100%;
+        height: 100%;
+
+        border-radius: 0;
+    }
+
+    .todo-list_container ul {
+        width: 100%;
+        height: 80%;
+    }
 }
