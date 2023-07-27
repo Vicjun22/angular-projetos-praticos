@@ -1,38 +1,40 @@
-<section [ngClass]="'todo-list'">
-    <div [ngClass]="'todo-list_container'">
-        <h1 [ngClass]="'todo-list_title'">To Do List <small>({{ listaDeAfazeres.length }})</small></h1>
-    
-        <ul>
-            <li [ngClass]="'todo-list_content'" *ngFor="let item of listaDeAfazeres; let i = index">
-                <label (click)="handleChangeCheckbox(i)">
-                    <input type="checkbox" [checked]="item.checked">
-                    {{ item.toDo }}
-                </label>
-                <button (click)="removeToDo(i)"><mat-icon>delete</mat-icon></button>
-            </li>
-        </ul>
-    </div>
-    
-    <div [ngClass]="'todo-list_control'">
-        <input type="text"
-            maxlength="50"
-            [(ngModel)]="textoDeEntrada"
-            [ngClass]="'todo-list_input'"
-            placeholder="Qual sua nova tarefa?" />
-    
-        <p [ngClass]="'todo-list_input-size'">{{ textoDeEntrada.length }} / 50</p>
-    
-        <div [ngClass]="'todo-list_buttons'">
-            <button [ngClass]="['todo-list_button', 'todo-list_button_remove']" (click)="isOpenDialog = !isOpenDialog">Remover Tudo</button>
-            <button [ngClass]="['todo-list_button', 'todo-list_button_add']" (click)="newToDo()">Adicionar Tarefa</button>
+<section [ngClass]="'todo-list_section'">
+    <div [ngClass]="'todo-list'">
+        <div [ngClass]="'todo-list_container'">
+            <h1 [ngClass]="'todo-list_title'">To Do List <small>({{ listaDeAfazeres.length }})</small></h1>
+        
+            <ul>
+                <li [ngClass]="'todo-list_content'" *ngFor="let item of listaDeAfazeres; let i = index">
+                    <label (click)="handleChangeCheckbox(i)">
+                        <input type="checkbox" [checked]="item.checked">
+                        {{ item.toDo }}
+                    </label>
+                    <button (click)="removeToDo(i)"><mat-icon>delete</mat-icon></button>
+                </li>
+            </ul>
         </div>
-    </div>
+        
+        <div [ngClass]="'todo-list_control'">
+            <input type="text"
+                maxlength="50"
+                [(ngModel)]="textoDeEntrada"
+                [ngClass]="'todo-list_input'"
+                placeholder="Qual sua nova tarefa?" />
+        
+            <p [ngClass]="'todo-list_input-size'">{{ textoDeEntrada.length }} / 50</p>
+        
+            <div [ngClass]="'todo-list_buttons'">
+                <button [ngClass]="['todo-list_button', 'todo-list_button_remove']" (click)="isOpenDialog = !isOpenDialog">Remover Tudo</button>
+                <button [ngClass]="['todo-list_button', 'todo-list_button_add']" (click)="newToDo()">Adicionar Tarefa</button>
+            </div>
+        </div>
 
-    <div [ngClass]="'todo-list_dialog'" *ngIf="isOpenDialog">
-        <p>Deseja realmente remover todas as tarefas?</p>
-        <div>
-            <button [ngClass]="['todo-list_button', 'todo-list_button_add']" (click)="isOpenDialog = !isOpenDialog">Não</button>
-            <button [ngClass]="['todo-list_button', 'todo-list_button_remove']" (click)="removeAll()">Sim</button>
+        <div [ngClass]="'todo-list_dialog'" *ngIf="isOpenDialog">
+            <p>Deseja realmente remover todas as tarefas?</p>
+            <div>
+                <button [ngClass]="['todo-list_button', 'todo-list_button_add']" (click)="isOpenDialog = !isOpenDialog">Não</button>
+                <button [ngClass]="['todo-list_button', 'todo-list_button_remove']" (click)="removeAll()">Sim</button>
+            </div>
         </div>
     </div>
 </section>
